@@ -28,5 +28,7 @@ urlpatterns = [
     
     path('login/', views.login, name='login'),
     path('tables/', views.tables, name='tables'),
+    path('charts/', views.charts, name='charts'),
+
     path('error404/', views.error404, name='error404'),
 ]

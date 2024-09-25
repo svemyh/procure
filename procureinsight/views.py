@@ -11,5 +11,8 @@ def login(request):
 def tables(request):
     return render(request, 'tables.html')
 
+def charts(request):
+    return render(request, 'charts.html')
+
 def error404(request):
     return render(request, 'error404.html')
