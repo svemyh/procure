@@ -23,6 +23,17 @@
 
 </head>
 
+<style>
+.login-image-container-leftside {
+    display: flex;
+    justify-content: center;
+    padding-top: 40%;
+    padding-left: 2%;
+    align-items: center;
+    width: 100%;
+}
+</style>
+
 <body class="bg-gradient-primary">
 
     <div class="container">
@@ -36,7 +47,11 @@
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image">
+                                <div class="login-image-container-leftside">
+                                    <img src="{% static 'procureinsight/img/login/undraw_login_re_4vu2.svg' %}" alt="login" style="width: 90%; height: 100%;">
+                                </div>
+                            </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
