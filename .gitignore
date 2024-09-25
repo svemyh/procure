@@ -67,3 +67,7 @@ docker-compose.yml
 .dockerignore
 docker-compose.override.yml
 __MACOSX
+
+#
+credentials
+config
