@@ -14,5 +14,8 @@ def tables(request):
 def charts(request):
     return render(request, 'charts.html')
 
+def cards(request):
+    return render(request, 'cards.html')
+
 def error404(request):
     return render(request, 'error404.html')
