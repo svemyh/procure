@@ -1,0 +1,69 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+*.pyo
+*.sqlite3
+
+# Ignore the default SQLite database
+db.sqlite3
+
+# Local environment files
+.env
+*.env
+
+# Ignore media and static files
+/staticfiles/
+/mediafiles/
+/static/
+/media/
+
+# Ignore Django migrations
+*/migrations/*.py
+*/migrations/*.pyc
+
+# If you're using coverage reports
+htmlcov/
+.coverage
+*.cover
+.hypothesis/
+
+# If you're using mypy
+.mypy_cache/
+
+# If you're using PyCharm IDE
+.idea/
+
+# If you're using VS Code
+.vscode/
+
+# If you're using MacOS
+.DS_Store
+
+# If you're using Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Python virtual environment
+venv/
+env/
+ENV/
+venv.bak/
+
+# pipenv, poetry, or other dependency managers
+Pipfile
+Pipfile.lock
+poetry.lock
+poetry.toml
+
+# If using Docker
+docker-compose.yml
+.dockerignore
+docker-compose.override.yml
+__MACOSX
