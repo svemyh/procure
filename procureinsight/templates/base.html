@@ -83,30 +83,24 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Utilities 1</span>
+                    <span>Utilities</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{% url 'error404' %}">Buttons</a>
-                        <a class="collapse-item" href="{% url 'error404' %}">Cards</a>
-                    </div>
-                </div>
-            </li>
+                        <a class="collapse-item" href="{% url 'charts' %}">
+                            <i class="fas fa-fw fa-chart-area"></i>
+                            <span>Charts</span>
+                        </a>
 
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities 2</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{% url 'error404' %}">Colors</a>
-                        <a class="collapse-item" href="{% url 'error404' %}">Borders</a>
-                        <a class="collapse-item" href="{% url 'error404' %}">Animations</a>
-                        <a class="collapse-item" href="{% url 'error404' %}">Other</a>
+                        <a class="collapse-item" href="{% url 'tables' %}">
+                            <i class="fas fa-fw fa-table"></i>
+                            <span>Tables</span>
+                        </a>
+
+                        <a class="collapse-item" href="{% url 'cards' %}">
+                            <i class="fas fa-fw fa-address-card"></i>
+                            <span>Cards</span>
+                        </a>
                     </div>
                 </div>
             </li>
@@ -116,8 +110,35 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Additional
+                More Interface
             </div>
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'charts' %}">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Charts</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'tables' %}">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Tables</span>
+                </a>
+            </li>
+            
+            <!-- Nav Item - Cards -->
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'cards' %}">
+                    <i class="fas fa-fw fa-address-card"></i>
+                    <span>Cards</span>
+                </a>
+            </li>
+            
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
@@ -139,29 +160,9 @@
                 </div>
             </li>
 
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'charts' %}">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'tables' %}">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'cards' %}">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Cards</span></a>
-            </li>
-
             <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+            <hr class="sidebar-divider">
+            <br>
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
