@@ -28,7 +28,7 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 }
 
 // Bar Chart Example
-var ctx = document.getElementById("myBarChart");
+var ctx = document.getElementById("myBarChartTotalSale");
 var myBarChart = new Chart(ctx, {
   type: 'bar',
   data: {
@@ -38,7 +38,7 @@ var myBarChart = new Chart(ctx, {
       backgroundColor: "#4e73df",
       hoverBackgroundColor: "#2e59d9",
       borderColor: "#4e73df",
-      data: [22_000, 30_000, 120_000, 280_000, 640_000, 800_000],
+      data: [320_000, 6_200_000, 4_000_000, 8_500_000, 17_500_000, 12_000_000],
     }],
   },
   options: {
@@ -68,7 +68,7 @@ var myBarChart = new Chart(ctx, {
       yAxes: [{
         ticks: {
           min: 0,
-          max: 1_000_000,
+          max: 20_000_000,
           maxTicksLimit: 5,
           padding: 10,
           // Include a dollar sign in the ticks
