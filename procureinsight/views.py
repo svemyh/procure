@@ -11,8 +11,5 @@ def login(request):
 def tables(request):
     return render(request, 'tables.html')
 
-def datatables(request):
-    return render(request, 'datatables.html')
-
 def error404(request):
     return render(request, 'error404.html')
