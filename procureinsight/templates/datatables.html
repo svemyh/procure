@@ -1,5 +1,6 @@
 <!-- datatables.html -->
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %} Datatables {% endblock %}
 
@@ -508,5 +509,16 @@
 </div>
 
 <!-- End of Main Content -->
+
+{% endblock %}
+
+
+{% block scripts %}
+ <!-- Page level plugins -->
+ <script src="{% static 'procureinsight/vendor/datatables/jquery.dataTables.min.js' %}"></script>
+ <script src="{% static 'procureinsight/vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
+
+ <!-- Page level custom scripts -->
+ <script src="{% static 'procureinsight/js/demo/datatables-demo.js' %}"></script>
 
 {% endblock %}

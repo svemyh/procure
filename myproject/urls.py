@@ -17,13 +17,17 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
+from django.views.generic import RedirectView
 from procureinsight import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('', views.index, name='index'),
-    path('home/', views.home, name='home'),
+    path('index/', RedirectView.as_view(url='/', permanent=False), name='redirect-home'),
+    path('home/', RedirectView.as_view(url='/', permanent=False), name='redirect-home'),
+    
     path('login/', views.login, name='login'),
     path('tables/', views.tables, name='tables'),
     path('datatables/', views.datatables, name='datatables'),
+    path('error404/', views.error404, name='error404'),
 ]

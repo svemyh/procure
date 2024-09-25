@@ -2,9 +2,6 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 
-def home(request):
-    return render(request, 'home.html')
-
 def index(request):
     return render(request, 'index.html')
 
@@ -16,3 +13,6 @@ def tables(request):
 
 def datatables(request):
     return render(request, 'datatables.html')
+
+def error404(request):
+    return render(request, 'error404.html')
