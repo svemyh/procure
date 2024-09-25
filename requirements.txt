@@ -1,3 +1,6 @@
 django
 gunicorn
 whitenoise
+django-storages
+boto3
+python-dotenv

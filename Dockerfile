@@ -27,3 +27,5 @@ RUN python manage.py migrate
 
 # Start the Django app
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "myproject.wsgi:application"]
+
+# gunicorn --bind 0.0.0.0:8000 myproject.wsgi:application
