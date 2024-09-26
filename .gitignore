@@ -62,15 +62,10 @@ Pipfile.lock
 poetry.lock
 poetry.toml
 
-# If using Docker
-docker-compose.yml
-.dockerignore
-docker-compose.override.yml
 __MACOSX
 
 
 # Secrets
 credentials
-config
 .entrypoint
 .env

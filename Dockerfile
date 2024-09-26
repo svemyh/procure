@@ -18,8 +18,8 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 COPY . /app/
 
 # Copy AWS credentials and config
-COPY credentials /root/.aws/credentials
-COPY config /root/.aws/config
+COPY aws/credentials /root/.aws/credentials
+COPY aws/config /root/.aws/config
 
 # Install AWS CLI
 RUN pip3 install awscli
