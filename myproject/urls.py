@@ -22,14 +22,14 @@ from procureinsight import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('', views.index, name='index'),
-    path('index/', RedirectView.as_view(url='/', permanent=False), name='redirect-home'),
-    path('home/', RedirectView.as_view(url='/', permanent=False), name='redirect-home'),
-    
-    path('login/', views.login, name='login'),
-    path('tables/', views.tables, name='tables'),
-    path('charts/', views.charts, name='charts'),
-    path('cards/', views.cards, name='cards'),
-
-    path('error404/', views.error404, name='error404'),
+    path("", views.index, name="index"),
+    path(
+        "index/", RedirectView.as_view(url="/", permanent=False), name="redirect-home"
+    ),
+    path("home/", RedirectView.as_view(url="/", permanent=False), name="redirect-home"),
+    path("login/", views.login, name="login"),
+    path("tables/", views.tables, name="tables"),
+    path("charts/", views.charts, name="charts"),
+    path("cards/", views.cards, name="cards"),
+    path("error404/", views.error404, name="error404"),
 ]

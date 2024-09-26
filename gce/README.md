@@ -11,8 +11,6 @@ Start container
 Use content in '.entrypoint'
 
 
-
-
 ## GCE Artifact registry
 Procedure for pushing new docker images to GCE:
 
@@ -21,4 +19,8 @@ Procedure for pushing new docker images to GCE:
 
 
 ## GCE Cloud Run
-^ Service used for running the docker image of django backend. Set to autoscale.
+^ Service used for running the docker image of django backend. Set to autoscale. Can scale from 0 to n horisontal instances.
+
+
+## GCE Custom Domains (GCLB)
+^ Used google's service for custom domains to host 'procure.guru' (bought through NameCheap)

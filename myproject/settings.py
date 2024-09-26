@@ -25,26 +25,28 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    '0.0.0.0',
-    'localhost',
-    '127.0.0.1',
-    'procure.guru',
-    'procureinsight-279546565067.us-west2.run.app',
-    'procure-b0870-83377.firebaseapp.com',
-    'procure-b0870-83377.web.app',
-    'procureinsight-279546565067.us-west2.run.app',
-    'procureinsight-dwbrlsziuq-wl.a.run.app,',
+    "0.0.0.0",
+    "localhost",
+    "127.0.0.1",
+    "procure.guru",
+    "procureinsight-279546565067.us-west2.run.app",
+    "procure-b0870-83377.firebaseapp.com",
+    "procure-b0870-83377.web.app",
+    "procureinsight-279546565067.us-west2.run.app",
+    "procureinsight-dwbrlsziuq-wl.a.run.app,",
 ]
 
 # These two lines are required to allow the app to run on Google Cloud Run
-ALLOWED_HOSTS.append(gethostbyname(gethostname())) # Adds the 'external' IP address of docker container while in cloud
-USE_X_FORWARDED_HOST=True # Read docs. Is required.
+ALLOWED_HOSTS.append(
+    gethostbyname(gethostname())
+)  # Adds the 'external' IP address of docker container while in cloud
+USE_X_FORWARDED_HOST = True  # Read docs. Is required.
 
 
 # Application definition
@@ -54,7 +56,7 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
-    #"whitenoise.runserver_nostatic",
+    # "whitenoise.runserver_nostatic",
     "django.contrib.staticfiles",
     "procureinsight",
     "storages",
@@ -63,7 +65,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
-    #"whitenoise.middleware.WhiteNoiseMiddleware",
+    # "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -76,7 +78,7 @@ ROOT_URLCONF = "myproject.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, 'myapp/templates')],
+        "DIRS": [os.path.join(BASE_DIR, "myapp/templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -138,13 +140,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "static/"
-STATIC_ROOT = BASE_DIR / 'static'
+STATIC_ROOT = BASE_DIR / "static"
 
-#STATICFILES_DIRS = [
+# STATICFILES_DIRS = [
 #    os.path.join(BASE_DIR, "static"),
-#]
+# ]
 
-#STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -153,14 +155,13 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 # AWS S3 settings
-AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
+AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME = os.getenv("AWS_STORAGE_BUCKET_NAME")
 
-AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.us-east-2.amazonaws.com'
-STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.us-east-2.amazonaws.com"
+STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/"
+STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
-#print("Remember to run 'python manage.py collectstatic' to upload static files to S3")
-#print(f'Connected to: {STATIC_URL}')
-
+# print("Remember to run 'python manage.py collectstatic' to upload static files to S3")
+# print(f'Connected to: {STATIC_URL}')
