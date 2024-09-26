@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 from dotenv import load_dotenv
+from socket import gethostbyname, gethostname
 
 load_dotenv()
 
@@ -24,23 +25,28 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = "django-insecure-c++@ok$pp8uiw&%yxekk(g@@)r+lgsz%o)*y6aijop)pccwkhk"
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['0.0.0.0',
-                 'localhost',
-                 '127.0.0.1',
-                 'procureinsight-279546565067.us-west2.run.app',
-                 'procure-b0870-83377.firebaseapp.com',
-                 'procure-b0870-83377.web.app'
-                ]
+ALLOWED_HOSTS = [
+    '0.0.0.0',
+    'localhost',
+    '127.0.0.1',
+    'procureinsight-279546565067.us-west2.run.app',
+    'procure-b0870-83377.firebaseapp.com',
+    'procure-b0870-83377.web.app',
+    'procureinsight-279546565067.us-west2.run.app',
+    'procureinsight-dwbrlsziuq-wl.a.run.app,',
+]
+
+# These two lines are required to allow the app to run on Google Cloud Run
+ALLOWED_HOSTS.append(gethostbyname(gethostname())) # Adds the 'external' IP address of docker container while in cloud
+USE_X_FORWARDED_HOST=True # Read docs. Is required.
 
 
 # Application definition
-
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
