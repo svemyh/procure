@@ -33,7 +33,9 @@ DEBUG = False
 ALLOWED_HOSTS = ['0.0.0.0',
                  'localhost',
                  '127.0.0.1',
-                 'procureinsight-279546565067.us-west2.run.app'
+                 'procureinsight-279546565067.us-west2.run.app',
+                 'procure-b0870-83377.firebaseapp.com',
+                 'procure-b0870-83377.web.app'
                 ]
 
 
