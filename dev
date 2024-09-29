@@ -1,0 +1,11 @@
+#!/bin/bash
+# For local development
+
+# Load variables from .env file
+export $(grep -v '^#' .env | xargs)
+
+# Print the secret key (for verification)
+echo $DJANGO_SECRET_KEY
+
+# Run the Django development server
+python3 manage.py runserver 0.0.0.0:8080
