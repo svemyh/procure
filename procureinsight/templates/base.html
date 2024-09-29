@@ -31,148 +31,25 @@
     <link href="{% static 'procureinsight/vendor/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
 
     <!-- Custom styles -->
+
+    <style>
+    .custom-search-margin {
+        margin-left: 0px;
+        padding-left: 0px;
+    }
+
+    .navbar-spacer {
+        width: 354px;
+    }
+    </style>
     {% block style %}{% endblock %}
+
 </head>
 
 <body id="page-top">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
-
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'index' %}">
-                <div class="sidebar-brand-icon rotate-n-0">
-                    <img class="img-profile rounded-circle" src="{% static 'procureinsight/img/logo_magnifying_prices.svg' %}">
-                </div>
-                <div class="sidebar-brand-text mx-3">Procure Insight</div>
-            </a>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Items -->
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'index' %}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'error404' %}">
-                    <i class="fas fa-fw fa-briefcase"></i>
-                    <span>Companies</span></a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'error404' %}">
-                    <i class="fas fa-fw fa-building"></i>
-                    <span>Industries</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Interface
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Utilities</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{% url 'charts' %}">
-                            <i class="fas fa-fw fa-chart-area"></i>
-                            <span>Charts</span>
-                        </a>
-
-                        <a class="collapse-item" href="{% url 'tables' %}">
-                            <i class="fas fa-fw fa-table"></i>
-                            <span>Tables</span>
-                        </a>
-
-                        <a class="collapse-item" href="{% url 'cards' %}">
-                            <i class="fas fa-fw fa-address-card"></i>
-                            <span>Cards</span>
-                        </a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                More Interface
-            </div>
-
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'charts' %}">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span>
-                </a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'tables' %}">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span>
-                </a>
-            </li>
-            
-            <!-- Nav Item - Cards -->
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'cards' %}">
-                    <i class="fas fa-fw fa-address-card"></i>
-                    <span>Cards</span>
-                </a>
-            </li>
-            
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Account</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="{% url 'login' %}">Login</a>
-                        <a class="collapse-item" href="{% url 'error404' %}">Register</a>
-                        <a class="collapse-item" href="{% url 'error404' %}">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="{% url 'error404' %}">404 Page</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-            <br>
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-
-        </ul>
-        <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -189,13 +66,16 @@
                             <i class="fa fa-bars"></i>
                         </button>
                     </form>
+                    
+                    <!-- navbar-spacer -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4 navbar-spacer "></div>
 
                     <!-- Topbar Search -->
                     <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 custom-search-margin navbar-search">
                         <div class="input-group">
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
+                                aria-label="Search" aria-describedby="basic-addon2" >
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
                                     <i class="fas fa-search fa-sm"></i>
@@ -203,6 +83,11 @@
                             </div>
                         </div>
                     </form>
+                    <div class="align-items-center" style="width: 60px; padding-left: 6px; padding-right: 6px;" >
+                        procure.guru
+                    </div>
+
+                    <div style="width: 60px;" ></div>
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -388,6 +273,10 @@
 
                     </ul>
 
+                    <!-- navbar spacer -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4 navbar-spacer"></div>
+
+
                 </nav>
                 <!-- End of Topbar -->
 
@@ -407,7 +296,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Procure Insight 2024</span>
+                        <span>Copyright &copy; procure.guru 2024</span>
                     </div>
                 </div>
             </footer>
