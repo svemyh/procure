@@ -6,10 +6,21 @@ export $(grep -v '^#' .env | xargs)
 # Print the secret key (for verification)
 echo "DJANGO_SECRET_KEY:" $DJANGO_SECRET_KEY
 
-docker build -t procureinsight .
+# Stop and remove any currently running container with the procureinsight image
+container_id=$(docker ps -q --filter "ancestor=procureguru:latest")
+
+if [ -n "$container_id" ]; then
+    echo "Stopping and removing the currently running container with image 'procureguru:latest' (ID: $container_id)..."
+    docker stop $container_id
+    docker rm $container_id
+else
+    echo "No running container with image 'procureguru:latest' found."
+fi
+
+docker build -t procureguru .
 docker run -p 8080:8080 \
     -e DJANGO_SECRET_KEY=$DJANGO_SECRET_KEY \
     -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
     -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
     -e AWS_STORAGE_BUCKET_NAME=$AWS_STORAGE_BUCKET_NAME \
-    procureinsight 
+    procureguru

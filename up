@@ -1,4 +1,4 @@
 #!/bin/bash
-docker build -t procureinsight .
-docker tag procureinsight:latest us-west2-docker.pkg.dev/randd-418508/procure/procureinsight:0.0.0
-docker push us-west2-docker.pkg.dev/randd-418508/procure/procureinsight:0.0.0
+docker build -t procureguru .
+docker tag procureguru:latest us-west2-docker.pkg.dev/randd-418508/procure/procureguru:0.0.0
+docker push us-west2-docker.pkg.dev/randd-418508/procure/procureguru:0.0.0
