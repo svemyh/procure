@@ -2,7 +2,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %} Company {% endblock %}
+{% block title %} {{ company_name }} | procure.guru {% endblock %}
 
 {% block style %}
 <style>
@@ -21,28 +21,31 @@
     <div class="container-fluid">
 
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h4 mb-0 text-gray-800"> [Company name here] > Products</h1>
+            <h1 class="h4 mb-0 text-gray-800"> {{ company_data.company_name }}'s Products</h1>
+        </div>
+
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            {{ company_data.description }}
         </div>
 
         <div class="row">
             <div class="col-lg-12">
-                {% for card in products_data %}
+                {% for product in company_data.products %}
                 <!-- Collapsable Card -->
                 <div class="card shadow mb-4">
                     <a href="#collapseCard{{ forloop.counter }}" class="d-block card-header py-3" data-toggle="collapse"
                         role="button" aria-expanded="false" aria-controls="collapseCard{{ forloop.counter }}">
-                        <h6 class="m-0 font-weight-bold text-primary">{{ card.product }}</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">{{ product.product }}</h6>
                     </a>
                     <div class="collapse" id="collapseCard{{ forloop.counter }}">
                         <div class="card-body">
-                            {{ card.content }}
+                            {{ product.content }}
                         </div>
                     </div>
                 </div>
                 {% endfor %}
             </div>
         </div>
-
     </div>
 
 </div>

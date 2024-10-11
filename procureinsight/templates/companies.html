@@ -26,19 +26,20 @@
 
         <div class="row">
             <div class="col-lg-12">
-                
-                <!-- Basic Card Example -->
+                {% for card in all_companies %}
+                <!-- Collapsable Card -->
                 <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Companies</h6>
-                    </div>
-                    <div class="card-body">
-                        The styling for this basic card example is created by using default Bootstrap
-                        utility classes. By using utility classes, the style of the card component can be
-                        easily modified with no need for any custom CSS!
+                    <a href="#collapseCard{{ forloop.counter }}" class="d-block card-header py-3" data-toggle="collapse"
+                        role="button" aria-expanded="false" aria-controls="collapseCard{{ forloop.counter }}">
+                        <h6 class="m-0 font-weight-bold text-primary">{{ card.company_name }}</h6>
+                    </a>
+                    <div class="collapse" id="collapseCard{{ forloop.counter }}">
+                        <div class="card-body">
+                            {{ card.description }}
+                        </div>
                     </div>
                 </div>
-                
+                {% endfor %}
             </div>
         </div>
 

@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from procureinsight.utils import datastore
 
 
 def index(request):
@@ -16,17 +17,22 @@ def companies(request):
     return render(request, 'companies.html', {'all_companies': all_companies})
 
 
-def company(request):
+def company(request, company_name):
+    """
+    Example url: procure.guru/company/google/
+    """
 
-    # Sample data to pass to the template
-    products_data = [
-        {"product": "Collapzable Card Example 1", "content": "This is the content for card 1."},
-        {"product": "Collapsable Card Example 2", "content": "This is the content for card 2."},
-        {"product": "Collapsable Card Example 3", "content": "This is the content for card 3."},
-        {"product": "Collapsable Card Example 4", "content": "This is the content for card 4."},
-    ]
+    if datastore.isUnsafePattern(company_name):
+        return render(request, 'error404.html')
 
-    return render(request, 'company.html', {'products_data': products_data})
+    company_data = datastore.getCompanyDataDummy(company_name)
+    if company_data is None:
+        return render(request, 'error404.html')
+    
+
+    context = {'company_name': company_name, 'company_data': company_data}
+
+    return render(request, 'company.html', context)
 
 
 def login(request):
