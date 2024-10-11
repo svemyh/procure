@@ -58,10 +58,18 @@
     <div class="container-fluid">
         <!-- Header with product name and description -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h4 mb-0 text-gray-800">{{ product_data.product_name }}</h1>
+            <h1 class="h4 mb-0 text-gray-800">Product: {{ product_data.product_name }}</h1>
         </div>
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <p>{{ product_data.description }}</p>
+        </div>
+
+        <!-- Breakdown -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-1">
+            <h1 class="h5 mb-0 text-gray-800">Breakdown of Costs</h1>
+        </div>
+        <div class="d-sm-flex align-items-center justify-content-between mb-2">
+            A detailed breakdown of common costs and details associated with the product can be found below:
         </div>
 
         <!-- Cost Breakdown Cards for each year and company size -->
@@ -71,7 +79,7 @@
                 <div class="card shadow mb-4 cost-breakdown-card">
                     <a href="#collapseCard{{ forloop.counter }}" class="d-block card-header py-3" data-toggle="collapse"
                         role="button" aria-expanded="false" aria-controls="collapseCard{{ forloop.counter }}">
-                        <h6 class="m-0 font-weight-bold text-primary">Year: {{ cost.year }} | Company Size: {{ cost.company_size }}</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Company Size: {{ cost.company_size }}</h6>
                     </a>
                     <div class="collapse" id="collapseCard{{ forloop.counter }}">
                         <div class="card-body">

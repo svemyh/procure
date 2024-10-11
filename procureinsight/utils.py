@@ -44,31 +44,29 @@ class datastore:
         # Generating dummy data for each company size and each year
         cost_data = []
         for size in company_sizes:
-            for year in years:
-                yearly_data = {
-                    "year": year,
-                    "company_size": size,
-                    "top_line_price": {
-                        "dollar_value": round(random.uniform(1000, 50000), 2),
-                        "payment_timing": random.choice(["Annual", "Monthly", "Quarterly"]),
-                        "financing": random.choice(["Upfront", "Installments", "Subscription"]),
-                    },
-                    "implementation_costs": {
-                        "integration": round(random.uniform(500, 10000), 2),
-                        "training": round(random.uniform(1000, 15000), 2),
-                        "consulting": round(random.uniform(1000, 20000), 2),
-                    },
-                    "hosting_costs": {
-                        "servers": round(random.uniform(1000, 20000), 2),
-                        "sla": random.choice(["Standard", "Premium", "Enterprise"]),
-                        "cloud_compute": round(random.uniform(500, 15000), 2),
-                    },
-                }
-                cost_data.append(yearly_data)
+            company_data = {
+                "company_size": size,
+                "top_line_price": {
+                    "dollar_value": round(random.uniform(1000, 50000), 2),
+                    "payment_timing": random.choice(["Annual", "Monthly", "Quarterly"]),
+                    "financing": random.choice(["Upfront", "Installments", "Subscription"]),
+                },
+                "implementation_costs": {
+                    "integration": round(random.uniform(500, 10000), 2),
+                    "training": round(random.uniform(1000, 15000), 2),
+                    "consulting": round(random.uniform(1000, 20000), 2),
+                },
+                "hosting_costs": {
+                    "servers": round(random.uniform(1000, 20000), 2),
+                    "sla": random.choice(["Standard", "Premium", "Enterprise"]),
+                    "cloud_compute": round(random.uniform(500, 15000), 2),
+                },
+            }
+            cost_data.append(company_data)
 
         product_data = {
             "product_name": product_name,
-            "description": f"{product_name} is a project management tool designed to help teams organize and track work.",
+            "description": f"{product_name} is a tool designed to help teams organize and collaborate more effectively.",
             "cost_breakdown": cost_data,
         }
 
