@@ -1,0 +1,136 @@
+<!-- company.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} {{ product_data.product_name }} | procure.guru {% endblock %}
+
+{% block style %}
+<style>
+    .company-dashboard-container {
+        margin-top: 50px;
+        width: 64%;
+        margin-left: 340px;
+    }
+
+    .cost-breakdown-card {
+        margin-bottom: 20px;
+    }
+
+    .card-header {
+        background-color: #f8f9fc;
+        border-bottom: 1px solid #e3e6f0;
+        cursor: pointer;
+    }
+
+    .card-header h6 {
+        font-size: 16px;
+    }
+
+    .card-body {
+        font-size: 14px;
+    }
+
+    .cost-details-table {
+        width: 100%;
+        margin-top: 10px;
+        border: 1px solid #dee2e6;
+    }
+
+    .cost-details-table th,
+    .cost-details-table td {
+        padding: 8px;
+        text-align: left;
+    }
+
+    .cost-details-table th {
+        background-color: #f8f9fc;
+    }
+
+    .table-title {
+        margin-top: 20px;
+        font-weight: bold;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="company-dashboard-container">
+    <div class="container-fluid">
+        <!-- Header with product name and description -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h4 mb-0 text-gray-800">{{ product_data.product_name }}</h1>
+        </div>
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <p>{{ product_data.description }}</p>
+        </div>
+
+        <!-- Cost Breakdown Cards for each year and company size -->
+        <div class="row">
+            <div class="col-lg-12">
+                {% for cost in product_data.cost_breakdown %}
+                <div class="card shadow mb-4 cost-breakdown-card">
+                    <a href="#collapseCard{{ forloop.counter }}" class="d-block card-header py-3" data-toggle="collapse"
+                        role="button" aria-expanded="false" aria-controls="collapseCard{{ forloop.counter }}">
+                        <h6 class="m-0 font-weight-bold text-primary">Year: {{ cost.year }} | Company Size: {{ cost.company_size }}</h6>
+                    </a>
+                    <div class="collapse" id="collapseCard{{ forloop.counter }}">
+                        <div class="card-body">
+                            <!-- Displaying Top-line Price -->
+                            <div class="table-title">Top-Line Price</div>
+                            <table class="cost-details-table">
+                                <tr>
+                                    <th>Dollar Value</th>
+                                    <th>Payment Timing</th>
+                                    <th>Financing</th>
+                                </tr>
+                                <tr>
+                                    <td>${{ cost.top_line_price.dollar_value }}</td>
+                                    <td>{{ cost.top_line_price.payment_timing }}</td>
+                                    <td>{{ cost.top_line_price.financing }}</td>
+                                </tr>
+                            </table>
+
+                            <!-- Displaying Implementation Costs -->
+                            <div class="table-title">Implementation Costs</div>
+                            <table class="cost-details-table">
+                                <tr>
+                                    <th>Integration</th>
+                                    <th>Training</th>
+                                    <th>Consulting</th>
+                                </tr>
+                                <tr>
+                                    <td>${{ cost.implementation_costs.integration }}</td>
+                                    <td>${{ cost.implementation_costs.training }}</td>
+                                    <td>${{ cost.implementation_costs.consulting }}</td>
+                                </tr>
+                            </table>
+
+                            <!-- Displaying Hosting Costs -->
+                            <div class="table-title">Hosting Costs</div>
+                            <table class="cost-details-table">
+                                <tr>
+                                    <th>Servers</th>
+                                    <th>SLA</th>
+                                    <th>Cloud Compute</th>
+                                </tr>
+                                <tr>
+                                    <td>${{ cost.hosting_costs.servers }}</td>
+                                    <td>{{ cost.hosting_costs.sla }}</td>
+                                    <td>${{ cost.hosting_costs.cloud_compute }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Any additional JavaScript can be added here
+</script>
+{% endblock %}

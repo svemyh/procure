@@ -28,6 +28,7 @@ urlpatterns = [
     ),
     path("home/", RedirectView.as_view(url="/", permanent=False), name="redirect-home"),
     path("company/<str:company_name>/", views.company, name="company"),
+    path("company/<str:company_name>/<str:product_name>/", views.product, name="product"),
     path("companies/", views.companies, name="companies"),
     path("login/", views.login, name="login"),
     path("tables/", views.tables, name="tables"),

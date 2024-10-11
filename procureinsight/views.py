@@ -35,6 +35,24 @@ def company(request, company_name):
     return render(request, 'company.html', context)
 
 
+def product(request, company_name, product_name):
+    """
+    Example url: procure.guru/company/atlassian/jira/
+    """
+
+    if datastore.isUnsafePattern(company_name) or datastore.isUnsafePattern(product_name):
+        return render(request, 'error404.html')
+
+    product_data = datastore.get_product_data_dummy(product_name)
+    if product_data is None:
+        return render(request, 'error404.html')
+    
+
+    context = {'company_name': company_name, 'product_data': product_data}
+
+    return render(request, 'product.html', context)
+
+
 def login(request):
     return render(request, "login.html")
 
