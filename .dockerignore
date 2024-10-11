@@ -1,2 +1,5 @@
 .entrypoint
 .env
+.env.default
+docs/
+gcloud/

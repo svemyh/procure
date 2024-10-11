@@ -1,38 +1,31 @@
 # Use an official Python runtime as a base image
 FROM python:3.11-slim
 
-# Enable logging
-ENV PYTHONUNBUFFERED=1
+# Set environment variables to disable buffered output and enable pip's new resolver
+ENV PYTHONUNBUFFERED=1 PIP_NO_CACHE_DIR=1
 
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy the requirements file into the container
-COPY requirements.txt /app/
-
-# Install dependencies
+# Dependencies
+RUN apt-get update && apt-get install -y gcc
+COPY requirements.txt /app/requirements.txt
 RUN pip3 install --no-cache-dir -r requirements.txt
 
-# Copy environment variables and application code
-#COPY .env /app/
+# Copy application code
 COPY . /app/
 
-# Copy AWS credentials and config
-COPY aws/credentials /root/.aws/credentials
-COPY aws/config /root/.aws/config
-
-# Install AWS CLI
-RUN pip3 install awscli
+# AWS CLI can be configured via aws/config and aws/credentials (which is created dynamically in entrypoint.sh from env-vars)
 RUN aws s3 ls
 
-# Expose the port on which the Django app will run
+# Expose port
 EXPOSE 8080
 
-# Set the entry point for the container
-ENTRYPOINT ["python3", "manage.py", "runserver", "0.0.0.0:8080"]
+RUN chmod +x /app/entrypoint.sh
 
-# Optionally, you can uncomment these lines for production use
-# CMD ["gunicorn", "--bind", "0.0.0.0:8080", "myproject.wsgi:application"]
+# Set the entry point for the container
+ENTRYPOINT ["/app/entrypoint.sh"]
+
 
 # NB: It's generally good practice but may take significant time to run
 # RUN python manage.py collectstatic --noinput
