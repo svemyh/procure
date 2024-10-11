@@ -15,9 +15,6 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 # Copy application code
 COPY . /app/
 
-# AWS CLI can be configured via aws/config and aws/credentials (which is created dynamically in entrypoint.sh from env-vars)
-RUN aws s3 ls
-
 # Expose port
 EXPOSE 8080
 
