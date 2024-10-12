@@ -8,13 +8,9 @@ def index(request):
 
 
 def companies(request):
-    all_companies = [
-        {"company_name": "Google", "description": "Google is a search engine, created by Larry Page and Sergey Brin."},
-        {"company_name": "Meta", "description": "Social media platform, created by Mark Zuckerberg."},
-        {"company_name": "Palantir", "description": "Sell data analysis software to governments and corporations."},
-    ]
+    companies = datastore.getCompaniesDummy()
     
-    return render(request, 'companies.html', {'all_companies': all_companies})
+    return render(request, 'companies.html', {'companies': companies})
 
 
 def company(request, company_name):

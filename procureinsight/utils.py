@@ -6,6 +6,17 @@ class datastore:
         Checks for SQL injection and similar vulnerabilites in the company_name parameter.
         """
         return False
+    
+    def getCompaniesDummy():
+        companies = [
+            {"title": "Google", "tag":"Google", "description": "Google is a search engine, created by Larry Page and Sergey Brin."},
+            {"title": "Meta", "tag":"Meta", "description": "Social media platform, created by Mark Zuckerberg."},
+            {"title": "Palantir", "tag":"Palantir", "description": "Sell data analysis software to governments and corporations."},
+            {"title": "Amazon", "tag":"Amazon", "description": "E-commerce and cloud computing company, created by Jeff Bezos."},
+            {"title": "Microsoft", "tag":"Microsoft", "description": "Software company, created by Bill Gates and Paul Allen."},
+            {"title": "Deutsche Bank", "tag":"Deutsche-Bank", "description": "Banking and financial services company."},
+        ]
+        return companies
 
 
     def getCompanyDataDummy(company_name):
@@ -16,18 +27,18 @@ class datastore:
             "company_name": "Google",
             "description": "Google is a search engine, created by Larry Page and Sergey Brin.",
             "products": [
-                {"title": "Google Adwords", "tag":"google-adwords", "content": "Large scale advertising platform."},
-                {"title": "Google Search", "tag":"google-search", "content": "Search engine."},
-                {"title": "Google Maps", "tag":"google-maps", "content": "Mapping software."},
-                {"title": "Google Drive", "tag":"google-drive", "content": "Cloud storage."},
-                {"title": "Google Cloud", "tag":"google-cloud", "content": "Cloud computing."},
-                {"title": "Google Workspace", "tag":"google-workspace", "content": "Collaboration tools."},
-                {"title": "Google Analytics", "tag":"google-analytics", "content": "Web analytics."},
-                {"title": "Google Chrome", "tag":"google-chrome", "content": "Web browser."},
-                {"title": "Google Pixel", "tag":"google-pixel", "content": "Smartphone."},
-                {"title": "Google Nest", "tag":"google-nest", "content": "Smart home devices."},
-                {"title": "Google Fi", "tag":"google-fi", "content": "Mobile phone service."},
-                {"title": "Google Photos", "tag":"google-photos", "content": "Photo storage."},
+                {"title": "Google Adwords", "tag":"google-adwords", "description": "Large scale advertising platform."},
+                {"title": "Google Search", "tag":"google-search", "description": "Search engine."},
+                {"title": "Google Maps", "tag":"google-maps", "description": "Mapping software."},
+                {"title": "Google Drive", "tag":"google-drive", "description": "Cloud storage."},
+                {"title": "Google Cloud", "tag":"google-cloud", "description": "Cloud computing."},
+                {"title": "Google Workspace", "tag":"google-workspace", "description": "Collaboration tools."},
+                {"title": "Google Analytics", "tag":"google-analytics", "description": "Web analytics."},
+                {"title": "Google Chrome", "tag":"google-chrome", "description": "Web browser."},
+                {"title": "Google Pixel", "tag":"google-pixel", "description": "Smartphone."},
+                {"title": "Google Nest", "tag":"google-nest", "description": "Smart home devices."},
+                {"title": "Google Fi", "tag":"google-fi", "description": "Mobile phone service."},
+                {"title": "Google Photos", "tag":"google-photos", "description": "Photo storage."},
             ],
         }
         return company_data

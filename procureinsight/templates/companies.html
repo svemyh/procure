@@ -26,19 +26,19 @@
 
         <div class="row">
             <div class="col-lg-12">
-                {% for card in all_companies %}
+                {% for company in companies %}
                 <!-- Collapsable Card -->
                 <div class="card shadow mb-4">
                     <a href="#collapseCard{{ forloop.counter }}" class="d-block card-header py-3" data-toggle="collapse"
                         role="button" aria-expanded="false" aria-controls="collapseCard{{ forloop.counter }}">
-                        <h6 class="m-0 font-weight-bold text-primary">{{ card.company_name }}</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">{{ company.title }}</h6>
                     </a>
                     <div class="collapse" id="collapseCard{{ forloop.counter }}">
                         <div class="card-body">
-                            {{ card.description }}
+                            {{ company.description }}
                         </div>
                         <div class="card-body">
-                            Read more about the company's products <a href="/company/{{ card.company_name }}/">here</a>.
+                            Read more about the company's products <a href="/company/{{ company.tag }}/">here</a>.
                         </div>
                     </div>
                 </div>
