@@ -39,7 +39,25 @@
     }
 
     .navbar-spacer {
-        width: 354px;
+        width: 334px;
+    }
+
+
+    /* Make the content wrapper fill the viewport */
+    #content-wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    /* Allow the content area to expand */
+    #content {
+        flex: 1 0 auto;
+    }
+
+    /* Ensure the container-fluid-base expands */
+    .container-fluid-base {
+        flex: 1 0 auto;
     }
     </style>
     {% block style %}{% endblock %}
@@ -281,7 +299,7 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <div class="container-fluid-base">
 
                     {% block content %}
                     {% endblock %}

@@ -20,6 +20,14 @@ class datastore:
                 {"title": "Google Search", "tag":"google-search", "content": "Search engine."},
                 {"title": "Google Maps", "tag":"google-maps", "content": "Mapping software."},
                 {"title": "Google Drive", "tag":"google-drive", "content": "Cloud storage."},
+                {"title": "Google Cloud", "tag":"google-cloud", "content": "Cloud computing."},
+                {"title": "Google Workspace", "tag":"google-workspace", "content": "Collaboration tools."},
+                {"title": "Google Analytics", "tag":"google-analytics", "content": "Web analytics."},
+                {"title": "Google Chrome", "tag":"google-chrome", "content": "Web browser."},
+                {"title": "Google Pixel", "tag":"google-pixel", "content": "Smartphone."},
+                {"title": "Google Nest", "tag":"google-nest", "content": "Smart home devices."},
+                {"title": "Google Fi", "tag":"google-fi", "content": "Mobile phone service."},
+                {"title": "Google Photos", "tag":"google-photos", "content": "Photo storage."},
             ],
         }
         return company_data
