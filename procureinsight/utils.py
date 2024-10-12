@@ -16,10 +16,10 @@ class datastore:
             "company_name": "Google",
             "description": "Google is a search engine, created by Larry Page and Sergey Brin.",
             "products": [
-                {"product": "Google Adwords", "content": "Large scale advertising platform."},
-                {"product": "Google Search", "content": "Search engine."},
-                {"product": "Google Maps", "content": "Mapping software."},
-                {"product": "Google Drive", "content": "Cloud storage."},
+                {"title": "Google Adwords", "tag":"google-adwords", "content": "Large scale advertising platform."},
+                {"title": "Google Search", "tag":"google-search", "content": "Search engine."},
+                {"title": "Google Maps", "tag":"google-maps", "content": "Mapping software."},
+                {"title": "Google Drive", "tag":"google-drive", "content": "Cloud storage."},
             ],
         }
         return company_data

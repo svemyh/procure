@@ -48,7 +48,7 @@ def product(request, company_name, product_name):
         return render(request, 'error404.html')
     
 
-    context = {'company_name': company_name, 'product_data': product_data}
+    context = {'company_name': company_name,'product_name': product_name, 'product_data': product_data}
 
     return render(request, 'product.html', context)
 
