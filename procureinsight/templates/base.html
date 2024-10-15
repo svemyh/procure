@@ -42,6 +42,42 @@
         width: 334px;
     }
 
+    /* Loader ~ From Uiverse.io by satyamchaudharydev */ 
+    .loader {
+    display: block;
+    --height-of-loader: 2px;
+    --loader-color: #0071e2;
+    width: 100%;
+    height: var(--height-of-loader);
+    border-radius: 30px;
+    background-color: rgba(0,0,0,0);
+    position: relative;
+    }
+
+    .loader::before {
+    content: "";
+    position: absolute;
+    background: var(--loader-color);
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    border-radius: 30px;
+    animation: moving 1.2s ease-in-out 1 forwards;
+    ;
+    }
+
+    @keyframes moving {
+    50% {
+        width: 100%;
+    }
+    100% {
+        width: 0;
+        right: 0;
+        left: unset;
+    }
+    }
+
     #content-wrapper {
         display: flex;
         flex-direction: column;
@@ -304,7 +340,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <form class="form-inline">
@@ -525,6 +561,9 @@
 
                 </nav>
                 <!-- End of Topbar -->
+
+                <!-- Loading bar ~ From Uiverse.io by satyamchaudharydev -->
+                <div class="loader mb-4"></div>
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid-base">
