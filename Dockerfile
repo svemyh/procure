@@ -1,5 +1,5 @@
 # Use an official Python runtime as a base image
-FROM python:3.11-slim
+FROM python:3.11-slim AS base
 
 # Set environment variables to disable buffered output and enable pip's new resolver
 ENV PYTHONUNBUFFERED=1 PIP_NO_CACHE_DIR=1
@@ -17,6 +17,8 @@ COPY . /app/
 
 # Expose port
 EXPOSE 8080
+
+FROM base AS development
 
 RUN chmod +x /app/entrypoint.sh
 
