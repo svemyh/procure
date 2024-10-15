@@ -64,7 +64,7 @@
         align-items: left;
         margin-top: 50px;
         margin-bottom: 50px;
-        margin-left: 350px;
+        margin-left: 360px;
     }
 
     /* <!-- Choose company size --> */
@@ -651,32 +651,6 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{% static 'procureinsight/js/sb-admin-2.min.js' %}"></script>
-
-
-    <!-- Firebase SDK -->
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-analytics.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-      
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-          apiKey: "AIzaSyAIjkn_ay_mSGRNAADf-aV0-0_9m8vcoVU",
-          authDomain: "procure-b0870.firebaseapp.com",
-          projectId: "procure-b0870",
-          storageBucket: "procure-b0870.appspot.com",
-          messagingSenderId: "148414546219",
-          appId: "1:148414546219:web:6b4c8af10e087f5ce7456e",
-          measurementId: "G-DW81N9P706"
-        };
-      
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-      </script>
 
     <!--Additional scripts -->
     {% block scripts %}
