@@ -31,6 +31,7 @@ urlpatterns = [
     path("company/<str:company_name>/<str:product_name>/", views.product, name="product"),
     path("companies/", views.companies, name="companies"),
     path("login/", views.login, name="login"),
+    path("dashboard/", views.dashboard, name="dashboard"),
     path("tables/", views.tables, name="tables"),
     path("charts/", views.charts, name="charts"),
     path("cards/", views.cards, name="cards"),
