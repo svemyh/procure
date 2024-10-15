@@ -10,5 +10,8 @@ echo "aws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}" >> /root/.aws/credential
 # AWS CLI can be configured via aws/config and aws/credentials (which is created dynamically in entrypoint.sh from env-vars)
 aws s3 ls
 
+python3 manage.py makemigrations
+python3 manage.py migrate
+
 python3 manage.py runserver 0.0.0.0:8080
 echo "Running."
