@@ -1,4 +1,12 @@
 import random
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import firestore
+
+# Use a service account.
+cred = credentials.Certificate('./firebase-service-account.json')
+app = firebase_admin.initialize_app(cred)
+db = firestore.client()
 
 class datastore:
     def isUnsafePattern(company_name):
@@ -16,6 +24,17 @@ class datastore:
             {"title": "Microsoft", "tag":"Microsoft", "description": "Software company, created by Bill Gates and Paul Allen."},
             {"title": "Deutsche Bank", "tag":"Deutsche-Bank", "description": "Banking and financial services company."},
         ]
+        return companies
+    
+    def getAllCompanies():
+        """Data fetched from Firestore"""
+
+        # Get all docs in collection:
+        companies = []
+        docs = db.collection("companies").stream()
+        for doc in docs:
+            companies.append(doc.to_dict())
+
         return companies
 
 

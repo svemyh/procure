@@ -69,3 +69,4 @@ __MACOSX
 credentials
 .entrypoint
 .env
+firebase-service-account.json

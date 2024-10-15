@@ -8,8 +8,8 @@ def index(request):
 
 
 def companies(request):
-    companies = datastore.getCompaniesDummy()
-    
+    companies = datastore.getAllCompanies()
+    print(f'Companies: {companies}')
     return render(request, 'companies.html', {'companies': companies})
 
 
