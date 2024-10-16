@@ -1,50 +1,53 @@
+# views.py
+
 from django.shortcuts import render
 from django.http import HttpResponse
-from procureinsight.utils import datastore
+from procureinsight.utils.datastore import Datastore
+from procureinsight.utils.dummyDatastore import DummyDatastore
 
+dummy_datastore = DummyDatastore()
+datastore = Datastore()
 
 def index(request):
     return render(request, "index.html")
 
 
 def companies(request):
-    companies = datastore.getAllCompanies()
-    print(f'Companies: {companies}')
+    """ Example url: procure.guru/companies/ """
+    companies = dummy_datastore.getAllCompanies()
+    
     return render(request, 'companies.html', {'companies': companies})
 
 
 def company(request, company_name):
-    """
-    Example url: procure.guru/company/google/
-    """
+    """ Example url: procure.guru/company/google/ """
 
-    if datastore.isUnsafePattern(company_name):
-        return render(request, 'error404.html')
-
-    company_data = datastore.getCompanyDataDummy(company_name)
+    company_data = dummy_datastore.getCompany(company_name)
     if company_data is None:
         return render(request, 'error404.html')
     
 
-    context = {'company_name': company_name, 'company_data': company_data}
+    context = {
+        'company_name': company_name,
+        'company_data': company_data
+    }
 
     return render(request, 'company.html', context)
 
 
 def product(request, company_name, product_name):
-    """
-    Example url: procure.guru/company/atlassian/jira/
-    """
+    """ Example url: procure.guru/company/atlassian/jira/ """
 
-    if datastore.isUnsafePattern(company_name) or datastore.isUnsafePattern(product_name):
-        return render(request, 'error404.html')
-
-    product_data = datastore.get_product_data_dummy(product_name)
+    product_data = dummy_datastore.getProduct(product_name)
     if product_data is None:
         return render(request, 'error404.html')
     
 
-    context = {'company_name': company_name,'product_name': product_name, 'product_data': product_data}
+    context = {
+        'company_name': company_name,
+        'product_name': product_name,
+        'product_data': product_data
+    }
 
     return render(request, 'product.html', context)
 
