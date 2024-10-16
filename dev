@@ -1,10 +1,12 @@
 #!/bin/bash
 
+echo "Building and running the Docker container. Recall: Use up.sh for building for production-use."
+
 # Load variables from .env file
 export $(grep -v '^#' .env | xargs)
 
 # Print the secret key (for verification)
-echo "DJANGO_SECRET_KEY:" $DJANGO_SECRET_KEY
+echo "dev.sh printing: DJANGO_SECRET_KEY:" $DJANGO_SECRET_KEY
 
 # Stop and remove any currently running container with the procureinsight image
 container_id=$(docker ps -q --filter "ancestor=procureguru:latest")
