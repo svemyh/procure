@@ -14,7 +14,7 @@ def index(request):
 
 def companies(request):
     """ Example url: procure.guru/companies/ """
-    companies = dummy_datastore.getAllCompanies()
+    companies = datastore.getAllCompanies()
     
     return render(request, 'companies.html', {'companies': companies})
 
